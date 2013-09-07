@@ -1,12 +1,11 @@
 var config = {
 	localePath: 'locales',
-	locale: 'ca'
+	locale: 'ca',
+	remoteUrl: 'http://padel.jasvisio.com/api',
 }
 
-
-
-var locale = new setLocale( 'ca' );
-
 $(document).ready(function () {
-  // bind each view model to a jQueryMobile page
+	locale = new Locale( 'ca', function( locale ) {
+		ko.applyBindings( new ActiveMatchesList( locale ) );		
+	});
 });

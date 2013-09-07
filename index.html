@@ -23,7 +23,11 @@
  
 <!-- *************************************************** Content ************** -->
 		<div data-role="content">
-			<p>Hello world</p>
+	
+			<ul data-bind="foreach: matches">
+				<li><span data-bind="text: team1"></span></li>
+			</ul>
+
 		</div>
 <!-- /content -->
  
@@ -43,6 +47,7 @@
 
 	<script src="api/locales.js"></script>
 	<script src="app.js"></script>
+	<script src="viewmodels/activeMatches.js"></script>
 
  <!-- /page -->
 </body>
