@@ -5,9 +5,11 @@ function Match( match ) {
 	}, this );
 }
 
-function ActiveMatchesList( locale )  {
+function ActiveMatchesList()  {
 	var self = this;
+	self.appliedBindings = false;
 
+	var page = generatePage( 'activeMatches', 'activeMatches.html' );
 
 	// Locales for this view
 	ko.mapping.fromJS( locale, {}, this );
@@ -48,6 +50,14 @@ function ActiveMatchesList( locale )  {
 	        	return new Match( match ) });
 	        self.matches( mappedMatches );
 		});
+	}
+
+	self.show = function( data ) {
+		$.mobile.changePage( page, data.options );
+		if ( !self.appliedBindings ) {
+			ko.applyBindings( self );	
+			self.applyBindings = true;	
+		}
 	}
 
 	self.showList( true );

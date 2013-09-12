@@ -84,20 +84,36 @@ function generatePage( pageid, content, header, footer ){
 }
 
 window.locale = {};
+var viewModels = {};
 
 $(document).on('pageinit', '#__start__', function( event ) {
 	new Locale( 'ca', function( locale ) {
 		window.locale = locale;
 
+		viewModels.activeMatches = new ActiveMatchesList(),
+
 		$.mobile.changePage('#activeMatches');
 	});
 });
 
+function show( data ) {
+	var pageid = data.toPage;
+	var hashSymbolPos = pageid.indexOf('#');
+	if ( hashSymbolPos >= 0 ) {
+		pageid = pageid.substring( hashSymbolPos+1, pageid.length );
+	}
+	var viewmodel = viewModels[ pageid ];
+	if ( !viewmodel ) {
+		console.error( 'View model not found. id: ', pageid );
+	}
+	else {
+		viewmodel.show( data );
+	}
+}
+
 $(document).bind('pagebeforechange', function(e,data){
 	if ( typeof data.toPage === 'string' ) {
-		var page = generatePage( 'activeMatches', 'activeMatches.html' );
-		ko.applyBindings( new ActiveMatchesList( window.locale ) );		
-		$.mobile.changePage( page, data.options );
+		show( data );
 		e.preventDefault();
 	}
 });
