@@ -11,7 +11,7 @@ var ActiveMatches = ViewModel.extend({
 
 		self._super( pageid );
 		self.matches = ko.observableArray( [] );
-		self.selectedMatch = ko.observable( null );
+//		self.selectedMatch = ko.observable( null );
 
 		// Get the match list from RESTfull server
 		if ( !self.matches.lenght ) {
@@ -25,7 +25,9 @@ var ActiveMatches = ViewModel.extend({
 
 	showMatch: function( match ) {
 		if (match) {
-			self.headerTitle( match.caption() );
+			viewModels.scorer = new Scorer( 'scorer', match );
+			$.mobile.changePage( '#scorer' );
+//			self.headerTitle( match.caption() );
 		}
 //		self.selectedMatch( match );
 	},

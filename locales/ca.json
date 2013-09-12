@@ -1,6 +1,10 @@
 {
-	"header_title": "Partides Actives",
-	"navbar_matches": "Partides",
-	"navbar_addMatch": "Nova Partida"
+	"header": {
+		"title": "Partides Actives"
+	},
+	"footer": {
+		"navbar_matches": "Partides",
+		"navbar_addMatch": "Nova Partida"
+	}
 }
 

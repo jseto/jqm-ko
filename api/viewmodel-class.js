@@ -1,6 +1,6 @@
 
 var ViewModel = Class.extend({
-	init: function( pageid ) {
+	init: function( pageid, data ) {
 		this.appliedBindings = false;
 		this.page = this._generatePage( pageid, pageid+'.html' );	
 	
@@ -8,11 +8,15 @@ var ViewModel = Class.extend({
 		ko.mapping.fromJS( locale, {}, this );
 
 		// header and footer observables
-		self.headerTitle = ko.observable( locale.header_title );
+//		self.header.title = ko.observable( locale.header_title );
 
+		if (data) {
+			$.extend( true, this, data );
+		}
 	},
 
 	show: function( data ) {
+		data.options.transition = 'slide';
 		$.mobile.changePage( this.page, data.options );
 		if ( !this.appliedBindings ) {
 			ko.applyBindings( this );	
