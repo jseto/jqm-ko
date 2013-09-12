@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../lib/jqm/jquery.mobile-1.3.2.css" />
+	<script src="../lib/jq/jquery-1.10.2.js"></script>
+	<script src="../lib/jqm/jquery.mobile-1.3.2.js"></script>
+	<script src="../lib/ko/knockout-2.3.0.debug.js"></script>
+	<script src="../lib/ko/knockout.mapping.js"></script>
+    <style type="text/css">
+
+		.fit-content, .bottom-footer {
+		    position : absolute;
+		}
+
+	    .fit-content {
+		    top : 44px;
+		    bottom : 44px;
+			left : 0;
+			right : 0;
+		}
+
+		.score-grid {
+			position: relative;
+			height: 100%;
+			/*margin: 10px;*/
+			/*background-color: #f00;*/
+		}
+
+		.column-left {
+			position: relative;
+			width: 50%;
+			height: 100%;
+			float: left;
+			background-color: #f00;
+		}
+
+		.column-right {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 50%;
+		}
+		
+		.row {
+			position: relative;
+			height: 25%;
+		}
+
+		.inner-col-left {
+			position: relative;
+			width: 50%;
+			height: 100%;
+			float: left;
+			background-color: #ff0;
+		}
+
+		.inner-col-right {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width:50%;
+		}
+
+		.row-top {
+			position: relative;
+			height: 25%;
+			background-color: #ff0;
+		}
+		
+		.scorer-text {
+			background: blue;
+  			height: 100%;
+			text-align: center;
+			font-size: 80px;
+			font-weight: bold;
+			width: 100%; 
+			line-height: 100%;
+			/*vertical-align: middle;*/
+		}
+
+		.score-grid .ui-btn {
+			margin: auto;
+			top:5%;
+			height: 90%;
+			width: 90%;
+		}
+
+		.score-grid .ui-btn-text {
+			white-space: normal;
+			word-wrap: break-word;
+			font-size: 12px;
+			height: 90%;
+		}
+    </style>
+</head>
+<body>
+ 
+<!-- *************************************************** Main page *********** -->
+    <div id="scorer" data-role="page">
+ 
+<!-- *************************************************** Header ************** -->
+        <div data-role="header" data-position="fixed" data-id="persistent" data-fullscreen="false">
+            <h1>My Title</h1>
+        </div>
+<!-- /header -->
+ 
+<!-- *************************************************** Content ************** -->
+        <div data-role="content" class="fit-content">
+
+<!-- hole score grid -->
+			<div class="score-grid">
+
+<!-- *** Left column -->
+				<div class="column-left">
+
+<!-- first row - 1 button -->
+					<div class="row">
+						<div data-role="button">
+							<p>Parella 1 puntuar</p>
+						</div>
+					</div>
+
+<!-- second row - 2 buttons -->
+					<div class="row">
+						<div class="inner-col-left">
+							<div data-role="button"><p>Ace</p></div>
+						</div>
+						<div class="inner-col-right">
+							<a href="#" data-role="button">Doble falta</a>
+						</div>
+					</div>
+
+<!-- thrird row - 2 buttons -->
+					<div class="row">
+						<div class="inner-col-left">
+							<a href="#" data-role="button">Punt guanyador</a>
+						</div>
+						<div class="inner-col-right">
+							<a href="#" data-role="button">Error forçat</a>
+						</div>
+					</div>
+
+<!-- fourth row - 1 button and score -->
+					<div class="row">
+						<div class="inner-col-left">
+							<a href="#" data-role="button">Borrar</a>
+						</div>
+						<div class="inner-col-right">
+							<div class="scorer-text">0</div>
+						</div>
+					</div>
+
+				</div>  <!-- Col left -->
+
+
+
+<!-- *** Right column -->
+				<div class="column-right">
+
+<!-- first row - 1 button -->
+					<div class="row">
+
+					    <a href="#" data-role="button">Parella 1 puntuar</a>
+
+					</div>
+
+<!-- second row - 2 buttons -->
+					<div class="row">
+						<div class="inner-col-left">
+							<a href="#" data-role="button">Ace</a>
+						</div>
+						<div class="inner-col-right">
+							<a href="#" data-role="button">Doble falta</a>
+						</div>
+					</div>
+
+<!-- thrird row - 2 buttons -->
+					<div class="row">
+						<div class="inner-col-left">
+							<a href="#" data-role="button">Punt guanyador</a>
+						</div>
+						<div class="inner-col-right">
+							<a href="#" data-role="button">Error forçat</a>
+						</div>
+					</div>
+
+<!-- fourth row - 1 button and score -->
+					<div class="row">
+						<div class="inner-col-left">
+							<a href="#" data-role="button">Borrar</a>
+						</div>
+						<div class="inner-col-right">
+							<span class="scorer-text">0</span>
+						</div>
+					</div>
+
+				</div>  <!-- Col right -->
+
+			</div>
+        </div>
+<!-- /content -->
+ 
+<!-- *************************************************** Footer ************** -->
+		<div data-role="footer" data-position="fixed">
+		  <div data-role="navbar">
+			<ul>
+			  <li><a href="#" data-icon="grid"><span data-bind="text: navbar_matches"></span></a></li>
+			  <li><a href="#" data-icon="plus"><span data-bind="text: navbar_addMatch"></span></a></li>
+			</ul>
+		  </div><!-- /navbar -->
+		</div>
+<!-- /footer -->
+ 
+    </div>
+ <!-- /page -->
+</body>
+</html>

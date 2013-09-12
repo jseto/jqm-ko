@@ -9,47 +9,46 @@
 	<script src="lib/ko/knockout-2.3.0.debug.js"></script>
 	<script src="lib/ko/knockout.mapping.js"></script>
 
+
 </head>
 <body>
- 
-<!-- *************************************************** Main page *********** -->
-	<div id="mainPage" data-role="page">
- 
-<!-- *************************************************** Header ************** -->
-		<div data-role="header" data-position="fixed" data-id="persistent">
-			<h1 data-bind="text: header_title"></h1>
-		</div>
-<!-- /header -->
- 
-<!-- *************************************************** Content ************** -->
-		<div data-role="content">
-	
-			<ul data-role="listview" data-bind="foreach: matches">
-				<li><a href="#"><span data-bind="text: team1"></span></a></li>
-			</ul>
 
+	<div data-role="page" id="__start__">
+	</div>
+<!-- 
+	<div data-role="page">
+		<div data-role="header" data-position="fixed" data-id="persistent" data-add-back-btn="true">
+			<h1 data-bind="text: headerTitle"></h1>
 		</div>
-<!-- /content -->
- 
-<!-- *************************************************** Footer ************** -->
+
+		<div id="listView" data-role="content" data-bind="visible: showingList">
+			<ul data-role="listview" data-bind="foreach: matches">
+				<li data-bind="click: $root.showDetails"><a href="#"><span data-bind="text: caption"</span></a></li>
+			</ul>
+		</div>
+
 		<div data-role="footer" data-position="fixed">
 		  <div data-role="navbar">
 			<ul>
 			  <li><a href="#" data-icon="grid"><span data-bind="text: navbar_matches"></span></a></li>
 			  <li><a href="#" data-icon="plus"><span data-bind="text: navbar_addMatch"></span></a></li>
 			</ul>
-		  </div><!-- /navbar -->
+		  </div>
 		</div>
-<!-- /footer -->
- 
+
+
 	</div>
+
+ -->
+
 
 
 	<script src="api/locales.js"></script>
 	<script src="app.js"></script>
 	<script src="viewmodels/activeMatches.js"></script>
 
- <!-- /page -->
+
+
 </body>
 </html>
 
