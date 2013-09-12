@@ -5,7 +5,8 @@ var ViewModel = Class.extend({
 		this.page = this._generatePage( pageid, pageid+'.html' );	
 	
 		// Locales for this view
-		ko.mapping.fromJS( locale, {}, this );
+		ko.applyBindings( ko.mapping.fromJS( locale.header, {} ), $('[data-role="header"]')[0] );
+		ko.applyBindings( ko.mapping.fromJS( locale.footer, {} ), $('[data-role="footer"]')[0] );
 
 		// header and footer observables
 //		self.header.title = ko.observable( locale.header_title );
@@ -19,7 +20,7 @@ var ViewModel = Class.extend({
 		data.options.transition = 'slide';
 		$.mobile.changePage( this.page, data.options );
 		if ( !this.appliedBindings ) {
-			ko.applyBindings( this );	
+			ko.applyBindings( this, $('[data-role="content"]')[0] );	
 			this.applyBindings = true;	
 		}
 	},
