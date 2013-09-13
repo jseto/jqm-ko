@@ -1,6 +1,7 @@
 {
 	"header": {
-		"title": "Partides Actives"
+		"title": "Partides Actives",
+		"scorer": "Marcador"
 	},
 	"footer": {
 		"navbar_matches": "Partides",

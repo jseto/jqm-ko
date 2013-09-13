@@ -6,12 +6,11 @@ function Match( match ) {
 }
 
 var ActiveMatches = ViewModel.extend({
-	init: function( pageid ) {
+	init: function( pageid, data ) {
 		var self = this;
 
-		self._super( pageid );
+		self._super( pageid, data );
 		self.matches = ko.observableArray( [] );
-//		self.selectedMatch = ko.observable( null );
 
 		// Get the match list from RESTfull server
 		if ( !self.matches.lenght ) {
@@ -26,10 +25,8 @@ var ActiveMatches = ViewModel.extend({
 	showMatch: function( match ) {
 		if (match) {
 			viewModels.scorer = new Scorer( 'scorer', match );
-			$.mobile.changePage( '#scorer' );
-//			self.headerTitle( match.caption() );
+			viewModels.scorer.show( { transition: 'slide' } );
 		}
-//		self.selectedMatch( match );
 	},
 });
 

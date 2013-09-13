@@ -2,24 +2,31 @@
 var ViewModel = Class.extend({
 	init: function( pageid, data ) {
 		this.appliedBindings = false;
+		this.pageid =pageid;
 		this.page = this._generatePage( pageid, pageid+'.html' );	
 	
 		// Locales for this view
-		ko.applyBindings( ko.mapping.fromJS( locale.header, {} ), $('[data-role="header"]')[0] );
+		this.viewmodel = {
+			header: ko.mapping.fromJS( locale.header, {} ),
+		}
+
+		ko.applyBindings( this.viewmodel.header, $('[data-role="header"]')[0] );
 		ko.applyBindings( ko.mapping.fromJS( locale.footer, {} ), $('[data-role="footer"]')[0] );
 		ko.mapping.fromJS( locale[pageid], {}, this );
-
-		// header and footer observables
-//		self.header.title = ko.observable( locale.header_title );
 
 		if (data) {
 			$.extend( true, this, data );
 		}
+
+		if ( this.header && this.header.title ) {
+			this.viewmodel.header.title( this.header.title() );
+		}
 	},
 
-	show: function( data ) {
-		data.options.transition = 'slide';
-		$.mobile.changePage( this.page, data.options );
+	show: function( options ) {
+		this.page.page();
+		// location.hash = this.pageid;
+		$.mobile.changePage( '#'+this.pageid, options );
 		if ( !this.appliedBindings ) {
 			ko.applyBindings( this, $('[data-role="content"]')[0] );	
 			this.applyBindings = true;	
@@ -62,6 +69,4 @@ var ViewModel = Class.extend({
 		}
 		return $( '#'+pageid );
 	},
-
-
 });

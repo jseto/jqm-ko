@@ -22,34 +22,20 @@ function viewFilePath( view ) {
 window.locale = {};
 var viewModels = {};
 
+// Sammy(function() {
+//     this.get('#activeMatches', function() {
+//     	viewModels.activeMatches.show();
+//     });
+//     this.get('#scorer', function() {
+//     	viewModels.scorer.show();
+//     });
+// }).run();    
+
 $(document).on('pageinit', '#__start__', function( event ) {
 	new Locale( 'ca', function( locale ) {
 		window.locale = locale;
 
 		viewModels.activeMatches = new ActiveMatches( 'activeMatches' );
-
-		$.mobile.changePage('#activeMatches');
+		viewModels.activeMatches.show();
 	});
-});
-
-function show( data ) {
-	var pageid = data.toPage;
-	var hashSymbolPos = pageid.indexOf('#');
-	if ( hashSymbolPos >= 0 ) {
-		pageid = pageid.substring( hashSymbolPos+1, pageid.length );
-	}
-	var viewmodel = viewModels[ pageid ];
-	if ( !viewmodel ) {
-		console.error( 'View model not found. id: ', pageid );
-	}
-	else {
-		viewmodel.show( data );
-	}
-}
-
-$(document).bind('pagebeforechange', function(e,data){
-	if ( typeof data.toPage === 'string' ) {
-		show( data );
-		e.preventDefault();
-	}
 });
