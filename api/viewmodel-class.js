@@ -8,10 +8,14 @@ var ViewModel = Class.extend({
 		// Locales for this view
 		this.viewmodel = {
 			header: ko.mapping.fromJS( locale.header, {} ),
+			footer: ko.mapping.fromJS( locale.footer, {} )
 		}
 
-		ko.applyBindings( this.viewmodel.header, $('[data-role="header"]')[0] );
-		ko.applyBindings( ko.mapping.fromJS( locale.footer, {} ), $('[data-role="footer"]')[0] );
+		if ( !this.appliedHeaderBindings ) {
+			ko.applyBindings( this.viewmodel.header, this.page.find('[data-role="header"]')[0] );
+			ko.applyBindings( this.viewmodel.footer, this.page.find('[data-role="footer"]')[0] );
+			this.appliedHeaderBindings = true;
+		}
 		ko.mapping.fromJS( locale[pageid], {}, this );
 
 		if (data) {
@@ -28,8 +32,8 @@ var ViewModel = Class.extend({
 		// location.hash = this.pageid;
 		$.mobile.changePage( '#'+this.pageid, options );
 		if ( !this.appliedBindings ) {
-			ko.applyBindings( this, $('[data-role="content"]')[0] );	
-			this.applyBindings = true;	
+			ko.applyBindings( this, this.page.find('[data-role="content"]')[0] );	
+			this.appliedBindings = true;	
 		}
 	},
 

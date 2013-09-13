@@ -3,13 +3,14 @@ function Match( match ) {
 	this.caption = ko.computed( function() {
 		return this.team1() + ' vs. ' + this.team2();
 	}, this );
+	return this;
 }
 
 var ActiveMatches = ViewModel.extend({
 	init: function( pageid, data ) {
 		var self = this;
-
 		self._super( pageid, data );
+
 		self.matches = ko.observableArray( [] );
 
 		// Get the match list from RESTfull server
@@ -24,7 +25,7 @@ var ActiveMatches = ViewModel.extend({
 
 	showMatch: function( match ) {
 		if (match) {
-			viewModels.scorer = new Scorer( 'scorer', match );
+			viewModels.scorer.setMatch( ko.mapping.toJS(match) );// = new Scorer( 'scorer', match );
 			viewModels.scorer.show( { transition: 'slide' } );
 		}
 	},

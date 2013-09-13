@@ -27,7 +27,7 @@ $(document).on('pageinit', '#__start__', function( event ) {
 		window.locale = locale;
 
 		viewModels.activeMatches = new ActiveMatches( 'activeMatches' );
+		viewModels.scorer = new Scorer( 'scorer' );
 		viewModels.activeMatches.show();
-		//window.history.pushState();
 	});
 });
