@@ -18,7 +18,7 @@ var ViewModel = Class.extend({
 	},
 
 	show: function( data ) {
-		data.options.transition = 'slide';
+		data.options.transition = 'flip';
 		$.mobile.changePage( this.page, data.options );
 		if ( !this.appliedBindings ) {
 			ko.applyBindings( this, $('[data-role="content"]')[0] );	
