@@ -22,20 +22,12 @@ function viewFilePath( view ) {
 window.locale = {};
 var viewModels = {};
 
-// Sammy(function() {
-//     this.get('#activeMatches', function() {
-//     	viewModels.activeMatches.show();
-//     });
-//     this.get('#scorer', function() {
-//     	viewModels.scorer.show();
-//     });
-// }).run();    
-
 $(document).on('pageinit', '#__start__', function( event ) {
 	new Locale( 'ca', function( locale ) {
 		window.locale = locale;
 
 		viewModels.activeMatches = new ActiveMatches( 'activeMatches' );
 		viewModels.activeMatches.show();
+		//window.history.pushState();
 	});
 });
