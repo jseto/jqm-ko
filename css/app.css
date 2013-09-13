@@ -94,14 +94,3 @@
 	float: left;
 	background-color: black;
 }
-
-/* Transitions from jQtouch (with small modifications): http://www.jqtouch.com/
-Built by David Kaneda and maintained by Jonathan Stark.
-Stripped out of jQuery Mobile 1.0.1 by Stephen "zSprawl" Russell.
-*/
- 
-.in, .out {
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-duration: 350ms;
-}
-
