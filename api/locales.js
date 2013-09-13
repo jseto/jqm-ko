@@ -16,4 +16,4 @@ function Locale( localeId, onDataReady ) {
 			return self.locale;
 		}
 	}
- }
+}

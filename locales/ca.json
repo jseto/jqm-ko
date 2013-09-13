@@ -1,6 +1,17 @@
 {
-	"header_title": "Partides Actives",
-	"navbar_matches": "Partides",
-	"navbar_addMatch": "Nova Partida"
+	"header": {
+		"title": "Partides Actives"
+	},
+	"footer": {
+		"navbar_matches": "Partides",
+		"navbar_addMatch": "Nova Partida"
+	},
+	"scorer": {
+		"dobleFault": "Doble falta",
+		"ace": "Ace",
+		"winnerPoint": "Punt guanyador",
+		"unforcedError": "Error no forçat",
+		"remove": "Borrar"
+	}
 }
 
