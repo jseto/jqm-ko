@@ -7,6 +7,7 @@ var ViewModel = Class.extend({
 		// Locales for this view
 		ko.applyBindings( ko.mapping.fromJS( locale.header, {} ), $('[data-role="header"]')[0] );
 		ko.applyBindings( ko.mapping.fromJS( locale.footer, {} ), $('[data-role="footer"]')[0] );
+		ko.mapping.fromJS( locale[pageid], {}, this );
 
 		// header and footer observables
 //		self.header.title = ko.observable( locale.header_title );

@@ -9,35 +9,33 @@
 
 <!-- first row - 1 button -->
 					<div class="row">
-						<div data-role="button">
-							<p>Parella 1 puntuar</p>
-						</div>
+						<div data-role="button" data-bind="text: team1"></div>
 					</div>
 
 <!-- second row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<div data-role="button"><p>Ace</p></div>
+							<div data-role="button" data-bind="text: ace"></div>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button">Doble falta</a>
+							<a href="#" data-role="button" data-bind="text: dobleFault"></a>
 						</div>
 					</div>
 
 <!-- thrird row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button">Punt guanyador</a>
+							<a href="#" data-role="button" data-bind="text: winnerPoint"></a>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button">Error forçat</a>
+							<a href="#" data-role="button" data-bind="text: unforcedError"></a>
 						</div>
 					</div>
 
 <!-- fourth row - 1 button and score -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button">Borrar</a>
+							<a href="#" data-role="button" data-bind="text: remove"></a>
 						</div>
 						<div class="inner-col-right">
 							<div class="scorer-text">0</div>
@@ -46,45 +44,44 @@
 
 				</div>  <!-- Col left -->
 
-
+<!-- *** Separator -->
+				<div class="separator"></div>
 
 <!-- *** Right column -->
 				<div class="column-right">
 
 <!-- first row - 1 button -->
 					<div class="row">
-
-					    <a href="#" data-role="button">Parella 1 puntuar</a>
-
+						<div data-role="button" data-bind="text: team2"></div>
 					</div>
 
 <!-- second row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button">Ace</a>
+							<a href="#" data-role="button" data-bind="text: dobleFault"></a>					
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button">Doble falta</a>
+							<div data-role="button" data-bind="text: ace"></div>
 						</div>
 					</div>
 
 <!-- thrird row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button">Punt guanyador</a>
+							<a href="#" data-role="button" data-bind="text: unforcedError"></a>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button">Error forçat</a>
+							<a href="#" data-role="button" data-bind="text: winnerPoint"></a>
 						</div>
 					</div>
 
 <!-- fourth row - 1 button and score -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button">Borrar</a>
+							<div class="scorer-text">0</div>
 						</div>
 						<div class="inner-col-right">
-							<span class="scorer-text">0</span>
+							<a href="#" data-role="button" data-bind="text: remove"></a>
 						</div>
 					</div>
 
