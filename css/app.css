@@ -94,3 +94,5 @@
 	float: left;
 	background-color: black;
 }
+
+.ui-page { -webkit-backface-visibility: hidden; }
