@@ -1,0 +1,96 @@
+
+.fit-content, .bottom-footer {
+    position : absolute;
+}
+
+.fit-content {
+    top : 44px;
+    bottom : 44px;
+	left : 0;
+	right : 0;
+}
+
+.score-grid {
+	position: relative;
+	height: 100%;
+	/*margin: 10px;*/
+	/*background-color: #f00;*/
+}
+
+.column-left {
+	position: relative;
+	width: 48%;
+	height: 100%;
+	float: left;
+	/*background-color: #f00;*/
+}
+
+.column-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 48%;
+}
+
+.row {
+	position: relative;
+	height: 25%;
+}
+
+.inner-col-left {
+	position: relative;
+	width: 50%;
+	height: 100%;
+	float: left;
+	/*background-color: #ff0;*/
+}
+
+.inner-col-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width:50%;
+}
+
+.row-top {
+	position: relative;
+	height: 25%;
+	/*background-color: #ff0;*/
+}
+
+.scorer-text {
+	/*background: blue;*/
+	height: 100%;
+	text-align: center;
+	font-size: 80px;
+	font-weight: bold;
+	width: 100%; 
+	line-height: 100%;
+	/*vertical-align: middle;*/
+}
+
+.score-grid .ui-btn {
+	margin: auto;
+	top:5%;
+	height: 90%;
+	width: 90%;
+}
+
+.score-grid .ui-btn-text {
+	white-space: normal;
+	word-wrap: break-word;
+	font-size: 12px;
+	height: 90%;
+}
+
+.separator {
+	position: relative;
+	margin-left: 1.5%;
+	top: 2%;
+	width: 1%;
+	height: 96%;
+	float: left;
+	background-color: black;
+}

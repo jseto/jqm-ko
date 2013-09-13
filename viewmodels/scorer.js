@@ -1,0 +1,2 @@
+var Scorer = ViewModel.extend({
+});
