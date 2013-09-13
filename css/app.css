@@ -95,4 +95,5 @@
 	background-color: black;
 }
 
+/* fix for page transitions*/
 .ui-page { -webkit-backface-visibility: hidden; }
