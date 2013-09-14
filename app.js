@@ -19,6 +19,10 @@ function viewFilePath( view ) {
 	return filePath( config.viewsPath, view );
 }
 
+// $(document).bind("mobileinit", function(){
+//     $.mobile.page.prototype.options.addBackBtn=true;
+// });
+
 window.locale = {};
 var viewModels = {};
 
@@ -26,8 +30,29 @@ $(document).on('pageinit', '#__start__', function( event ) {
 	new Locale( 'ca', function( locale ) {
 		window.locale = locale;
 
-		viewModels.activeMatches = new ActiveMatches( 'activeMatches' );
-		viewModels.scorer = new Scorer( 'scorer' );
+		viewModels.activeMatches = new ActiveMatches( {
+			page: { id: 'activeMatches' },
+		});
+		viewModels.scorer = new Scorer({
+			page: {
+				id: 'scorer',
+				attributes: {
+					"data-add-back-btn": true,
+					"data-back-btn-text": locale.header.backButtonText,
+				}
+			},
+			header: {
+				title: ko.observable( locale.header.scorer ),
+				attributes: {
+					"data-fullscreen": true,
+				}
+			},
+			footer: {
+				attributes: {
+					"data-fullscreen": true,
+				}
+			},
+		});
 		viewModels.activeMatches.show();
 	});
 });

@@ -1,7 +1,8 @@
 {
 	"header": {
 		"title": "Partides Actives",
-		"scorer": "Marcador"
+		"scorer": "Marcador",
+		"backButtonText": "Enrera"
 	},
 	"footer": {
 		"navbar_matches": "Partides",

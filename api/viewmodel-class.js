@@ -1,9 +1,13 @@
 
 var ViewModel = Class.extend({
-	init: function( pageid, data ) {
+	init: function( data ) {
 		this.appliedBindings = false;
-		this.pageid =pageid;
-		this.page = this._generatePage( pageid, pageid+'.html' );	
+
+		if (data) {
+			$.extend( true, this, data );
+		}
+
+		this.pageObj = this._generatePage( this.page, this.content, this.header, this.footer );	
 	
 		// Locales for this view
 		this.viewmodel = {
@@ -12,15 +16,11 @@ var ViewModel = Class.extend({
 		}
 
 		if ( !this.appliedHeaderBindings ) {
-			ko.applyBindings( this.viewmodel.header, this.page.find('[data-role="header"]')[0] );
-			ko.applyBindings( this.viewmodel.footer, this.page.find('[data-role="footer"]')[0] );
+			ko.applyBindings( this.viewmodel.header, this.pageObj.find('[data-role="header"]')[0] );
+			ko.applyBindings( this.viewmodel.footer, this.pageObj.find('[data-role="footer"]')[0] );
 			this.appliedHeaderBindings = true;
 		}
-		ko.mapping.fromJS( locale[pageid], {}, this );
-
-		if (data) {
-			$.extend( true, this, data );
-		}
+		ko.mapping.fromJS( locale[this.page.id], {}, this );
 
 		if ( this.header && this.header.title ) {
 			this.viewmodel.header.title( this.header.title() );
@@ -28,49 +28,78 @@ var ViewModel = Class.extend({
 	},
 
 	show: function( options ) {
-		this.page.page();
-		// location.hash = this.pageid;
-		$.mobile.changePage( '#'+this.pageid, options );
+		this.pageObj.page();
+		// location.hash = this.page.id;
+		$.mobile.changePage( '#'+ this.page.id, options );
 		if ( !this.appliedBindings ) {
-			ko.applyBindings( this, this.page.find('[data-role="content"]')[0] );	
+			ko.applyBindings( this, this.pageObj.find('[data-role="content"]')[0] );	
 			this.appliedBindings = true;	
 		}
 	},
 
-	_generatePage: function( pageid, content, header, footer ){
-		if ( $.inArray( pageid, pagesOnDOM ) == -1 ) {
+	_generatePage: function( page, content, header, footer ){
+		if ( $.inArray( page.id, pagesOnDOM ) == -1 ) {
 
 			if ( !header ) {
-				header = config.defaultHeader;
+				header = { file: config.defaultHeader };
+			}
+			if ( !header.file ) {
+				header.file = config.defaultHeader;
 			}
 
 			if ( !footer ) {
-				footer = config.defaultFooter;
+				footer = { file: config.defaultFooter };
+			}
+			if ( !footer.file ) {
+				footer.file = config.defaultFooter;
 			}
 
-			var page = $( '<div ' + 'id="' + pageid + '" data-role="page"></div>' );
+			if ( !content ) {
+				content = { file: page.id+'.html' };
+			}
+			if ( !content.file ) {
+				content.file = page.id+'.html';
+			}
+
+			var pageObj = $( '<div ' + 'id="' + page.id + '" data-role="page"></div>' );
+
+			if ( page && page.attributes ) {
+				pageObj.attr( page.attributes );
+			}
 
 			jQuery.ajaxSetup({async:false});
 
-			$.get( viewFilePath( header ), function( data ) {
-				page.append( data );
+			$.get( viewFilePath( header.file ), function( data ) {
+				$data = $(data);
+				if ( header && header.attributes ) {
+					$data.attr( header.attributes );
+				}
+				pageObj.append( $data );
 			});
 
-			$.get( viewFilePath( content ), function( data ) {
-				page.append( data );
+			$.get( viewFilePath( content.file ), function( data ) {
+				$data = $(data);
+				if ( content && content.attributes ) {
+					$data.attr( content.attributes );
+				}
+				pageObj.append( $data );
 			});
 
-			$.get( viewFilePath( footer ), function( data ) {
-				page.append( data );
+			$.get( viewFilePath( footer.file ), function( data ) {
+				$data = $(data);
+				if ( footer && footer.attributes ) {
+					$data.attr( footer.attributes );
+				}
+				pageObj.append( $data );
 			});
 			
 			jQuery.ajaxSetup({async:true});
 
-			page.prependTo( $.mobile.pageContainer );
-			pagesOnDOM.push( pageid );
+			pageObj.appendTo( $.mobile.pageContainer );
+			pagesOnDOM.push( page.id );
 			
-			return page;
+			return pageObj;
 		}
-		return $( '#'+pageid );
+		return $( '#'+page.id );
 	},
 });

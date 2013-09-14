@@ -25,7 +25,7 @@ var ActiveMatches = ViewModel.extend({
 
 	showMatch: function( match ) {
 		if (match) {
-			viewModels.scorer.setMatch( ko.mapping.toJS(match) );// = new Scorer( 'scorer', match );
+			viewModels.scorer.setMatch( ko.mapping.toJS(match) );
 			viewModels.scorer.show( { transition: 'slide' } );
 		}
 	},

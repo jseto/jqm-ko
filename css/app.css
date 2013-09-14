@@ -1,11 +1,12 @@
 
-.fit-content, .bottom-footer {
+/*.fit-content, .bottom-footer {
     position : absolute;
 }
-
+*/
 .fit-content {
-    top : 44px;
-    bottom : 44px;
+	position: absolute;
+    top : 0;
+    bottom : 0;
 	left : 0;
 	right : 0;
 }
