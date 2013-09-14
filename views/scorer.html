@@ -9,33 +9,33 @@
 
 <!-- first row - 1 button -->
 					<div class="row">
-						<a href="#" data-role="button" data-bind="text: team1"></a>
+						<a href="#" data-role="button" data-bind="click: addPointTeam1, text: team1"></a>
 					</div>
 
 <!-- second row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button" data-bind="text: ace"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam1, text: ace"></a>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button" data-bind="text: dobleFault"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam1, text: dobleFault"></a>
 						</div>
 					</div>
 
 <!-- thrird row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button" data-bind="text: winnerPoint"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam1, text: winnerPoint"></a>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button" data-bind="text: unforcedError"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam1, text: unforcedError"></a>
 						</div>
 					</div>
 
 <!-- fourth row - 1 button and score -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button" data-bind="text: remove"></a>
+							<a href="#" data-role="button" data-bind="click: substractPointTeam1, text: remove"></a>
 						</div>
 						<div class="inner-col-right">
 							<div class="scorer-text" data-bind="text: score1">0</div>
@@ -52,26 +52,26 @@
 
 <!-- first row - 1 button -->
 					<div class="row">
-						<a href="#" data-role="button" data-bind="text: team2"></a>
+						<a href="#" data-role="button" data-bind="click: addPointTeam2, text: team2"></a>
 					</div>
 
 <!-- second row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button" data-bind="text: dobleFault"></a>					
+							<a href="#" data-role="button" data-bind="click: addPointTeam2, text: dobleFault"></a>					
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button" data-bind="text: ace"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam2, text: ace"></a>
 						</div>
 					</div>
 
 <!-- thrird row - 2 buttons -->
 					<div class="row">
 						<div class="inner-col-left">
-							<a href="#" data-role="button" data-bind="text: unforcedError"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam2, text: unforcedError"></a>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button" data-bind="text: winnerPoint"></a>
+							<a href="#" data-role="button" data-bind="click: addPointTeam2, text: winnerPoint"></a>
 						</div>
 					</div>
 
@@ -81,7 +81,7 @@
 							<div class="scorer-text" data-bind="text: score2">0</div>
 						</div>
 						<div class="inner-col-right">
-							<a href="#" data-role="button" data-bind="text: remove"></a>
+							<a href="#" data-role="button" data-bind="click: substractPointTeam2, text: remove"></a>
 						</div>
 					</div>
 
