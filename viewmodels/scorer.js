@@ -1,11 +1,12 @@
 var Scorer = ViewModel.extend({
 	setMatch: function( match ) {
-		var unwrap = ko.mapping.toJS( match );
-		if ( !this.match ) {
-			this.match = ko.mapping.fromJS( unwrap );
+		if ( this.match ) {
+			ko.cleanNode( this.pageObj.find('[data-role="content"]')[0] );
+			this.match = match;
+			ko.applyBindings( this, this.pageObj.find('[data-role="content"]')[0] );
 		}
 		else {
-			ko.mapping.fromJS( unwrap, this.match );
+			this.match = match;
 		}
 	},
 
