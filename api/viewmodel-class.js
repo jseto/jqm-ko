@@ -28,8 +28,7 @@ var ViewModel = Class.extend({
 	},
 
 	show: function( options ) {
-		this.pageObj.page();
-		// location.hash = this.page.id;
+//		this.pageObj.trigger('create');
 		$.mobile.changePage( '#'+ this.page.id, options );
 		if ( !this.appliedBindings ) {
 			ko.applyBindings( this, this.pageObj.find('[data-role="content"]')[0] );	

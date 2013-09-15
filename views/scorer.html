@@ -9,7 +9,7 @@
 
 <!-- first row - 1 button -->
 					<div class="row">
-						<a href="#" data-role="button" data-bind="click: addPointTeam1, text: team1"></a>
+						<a href="#" data-role="button" data-bind="click: addPointTeam1, text: match.team1"></a>
 					</div>
 
 <!-- second row - 2 buttons -->
@@ -38,7 +38,7 @@
 							<a href="#" data-role="button" data-bind="click: substractPointTeam1, text: remove"></a>
 						</div>
 						<div class="inner-col-right">
-							<div class="scorer-text" data-bind="text: score1">0</div>
+							<div class="scorer-text" data-bind="text: match.score1">0</div>
 						</div>
 					</div>
 
@@ -52,7 +52,7 @@
 
 <!-- first row - 1 button -->
 					<div class="row">
-						<a href="#" data-role="button" data-bind="click: addPointTeam2, text: team2"></a>
+						<a href="#" data-role="button" data-bind="click: addPointTeam2, text: match.team2"></a>
 					</div>
 
 <!-- second row - 2 buttons -->
@@ -78,7 +78,7 @@
 <!-- fourth row - 1 button and score -->
 					<div class="row">
 						<div class="inner-col-left">
-							<div class="scorer-text" data-bind="text: score2">0</div>
+							<div class="scorer-text" data-bind="text: match.score2">0</div>
 						</div>
 						<div class="inner-col-right">
 							<a href="#" data-role="button" data-bind="click: substractPointTeam2, text: remove"></a>

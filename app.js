@@ -26,7 +26,8 @@ function viewFilePath( view ) {
 window.locale = {};
 var viewModels = {};
 
-$(document).on('pageinit', '#__start__', function( event ) {
+//$(document).on('pageinit', '#__start__', function( event ) {
+$(document).ready( function() {
 	new Locale( 'ca', function( locale ) {
 		window.locale = locale;
 
