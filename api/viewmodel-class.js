@@ -7,28 +7,27 @@ var ViewModel = Class.extend({
 			$.extend( true, this, data );
 		}
 
+		var self = this;
+		self = this._parseLocales( this );
+
 		this.pageObj = this._generatePage( this.page, this.content, this.header, this.footer );	
 	
 		// Locales for this view
 		this.viewmodel = {
-			header: ko.mapping.fromJS( locale.header, {} ),
-			footer: ko.mapping.fromJS( locale.footer, {} )
+			header: ko.mapping.fromJS( Locale.get('header'), {} ),
+			footer: ko.mapping.fromJS( Locale.get('footer'), {} )
 		}
+		this.viewmodel.header.pageid = ko.observable( this.page.id );
 
 		if ( !this.appliedHeaderBindings ) {
 			ko.applyBindings( this.viewmodel.header, this.pageObj.find('[data-role="header"]')[0] );
 			ko.applyBindings( this.viewmodel.footer, this.pageObj.find('[data-role="footer"]')[0] );
 			this.appliedHeaderBindings = true;
 		}
-		ko.mapping.fromJS( locale[this.page.id], {}, this );
-
-		if ( this.header && this.header.title ) {
-			this.viewmodel.header.title( this.header.title() );
-		}
+		ko.mapping.fromJS( Locale.get(this.page.id), {}, this );
 	},
 
 	show: function( options ) {
-//		this.pageObj.trigger('create');
 		$.mobile.changePage( '#'+ this.page.id, options );
 		if ( !this.appliedBindings ) {
 			ko.applyBindings( this, this.pageObj.find('[data-role="content"]')[0] );	
@@ -36,7 +35,26 @@ var ViewModel = Class.extend({
 		}
 	},
 
+	_parseLocales: function( data ) {
+		var self = this;
+		$.each( data, function( key, value ){
+			if ( key == 'locale' ) {
+				parentData[parentKey]=Locale.get(value);
+				return parentData;
+			} 
+			else {
+				parentKey = key;
+				parentData = data;
+				if ( typeof value === 'object' ) {
+					return self._parseLocales( value );
+				}
+			}
+		});
+		return data;
+	},
+
 	_generatePage: function( page, content, header, footer ){
+		var self = this;
 		if ( $.inArray( page.id, pagesOnDOM ) == -1 ) {
 
 			if ( !header ) {

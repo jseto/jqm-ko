@@ -1,4 +1,22 @@
 var Scorer = ViewModel.extend({
+	page: {
+		id: 'scorer',
+		attributes: {
+			'data-add-back-btn': true,
+			'data-back-btn-text': { locale: 'header.backButtonText' },
+		}
+	},
+	header: {
+		attributes: {
+			"data-fullscreen": true,
+		}
+	},
+	footer: {
+		attributes: {
+			"data-fullscreen": true,
+		}
+	},
+	
 	setMatch: function( match ) {
 		if ( this.match ) {
 			ko.cleanNode( this.pageObj.find('[data-role="content"]')[0] );

@@ -1,7 +1,7 @@
 {
 	"header": {
-		"title": "Partides Actives",
-		"scorer": "Marcador",
+		"activeMatchesTitle": "Partides Actives",
+		"scorerTitle": "Marcador",
 		"backButtonText": "Enrera"
 	},
 	"footer": {

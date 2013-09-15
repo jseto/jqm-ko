@@ -1,5 +1,10 @@
 <!-- *************************************************** Header ************** -->
 		<div id="header" data-role="header" data-position="fixed" data-id="persistent">
-			<h1 data-bind="text: title"></h1>
+			<!-- ko if:  pageid()=='activeMatches' -->
+			<h1 data-bind="text: activeMatchesTitle"></h1>
+			<!-- /ko -->
+			<!-- ko if:  pageid()=='scorer' -->
+			<h1 data-bind="text: scorerTitle"></h1>
+			<!-- /ko -->
 		</div>
 <!-- /header -->

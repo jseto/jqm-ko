@@ -7,6 +7,8 @@ function Match( match ) {
 }
 
 var ActiveMatches = ViewModel.extend({
+	page: { id: 'activeMatches' },
+
 	init: function( pageid, data ) {
 		var self = this;
 		self._super( pageid, data );
