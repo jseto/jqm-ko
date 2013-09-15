@@ -9,9 +9,9 @@ function Match( match ) {
 var ActiveMatches = ViewModel.extend({
 	page: { id: 'activeMatches' },
 
-	init: function( pageid, data ) {
+	init: function( data ) {
 		var self = this;
-		self._super( pageid, data );
+		self._super( data );
 
 		self.matches = ko.observableArray( [] );
 

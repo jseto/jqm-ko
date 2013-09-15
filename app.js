@@ -1,4 +1,5 @@
 
+/**** Global config ****/
 var config = {
 	localePath: 'locales',
 	locale: 'ca',
@@ -9,21 +10,13 @@ var config = {
 	defaultFooter: 'footer.html',
 }
 
-var pagesOnDOM =[];
-
-function filePath( path, filename ) {
-	return path + '/' + filename;
-}
-
-function viewFilePath( view ) {
-	return filePath( config.viewsPath, view );
-}
-
 var viewModels = {};
 
 //$(document).on('pageinit', '#__start__', function( event ) {
 $(document).ready( function() {
 	Locale.init( 'ca' );
+
+	/**** Create the view models here *****/
 	viewModels.activeMatches = new ActiveMatches();
 	viewModels.scorer = new Scorer();
 

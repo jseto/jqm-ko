@@ -16,12 +16,12 @@ var Scorer = ViewModel.extend({
 			"data-fullscreen": true,
 		}
 	},
-	
+
 	setMatch: function( match ) {
 		if ( this.match ) {
-			ko.cleanNode( this.pageObj.find('[data-role="content"]')[0] );
+			ko.cleanNode( this.$page.find('[data-role="content"]')[0] );
 			this.match = match;
-			ko.applyBindings( this, this.pageObj.find('[data-role="content"]')[0] );
+			ko.applyBindings( this, this.$page.find('[data-role="content"]')[0] );
 		}
 		else {
 			this.match = match;

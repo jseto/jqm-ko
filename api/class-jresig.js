@@ -1,3 +1,12 @@
+
+function filePath( path, filename ) {
+  return path + '/' + filename;
+}
+
+function viewFilePath( view ) {
+  return filePath( config.viewsPath, view );
+}
+
 /* Simple JavaScript Inheritance
  * By John Resig http://ejohn.org/
  * MIT Licensed.
