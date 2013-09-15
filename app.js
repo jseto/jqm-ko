@@ -11,9 +11,9 @@ var config = {
 }
 
 var viewModels = {};
-
-//$(document).on('pageinit', '#__start__', function( event ) {
+//$(document).on('init', '#activeMatches', function( event ) {
 $(document).ready( function() {
+	$.mobile.buttonMarkup.hoverDelay = 0;
 	Locale.init( 'ca' );
 
 	/**** Create the view models here *****/
@@ -22,3 +22,4 @@ $(document).ready( function() {
 
 	viewModels.activeMatches.show();
 });
+
