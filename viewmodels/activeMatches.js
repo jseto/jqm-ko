@@ -11,11 +11,20 @@ var ActiveMatches = ViewModel.extend({
 
 	init: function( data ) {
 		var self = this;
+
+		$.mobile.iscrollview.prototype.options.pullDownResetText = Locale.get('activeMatches.pulldownLabel')
+		$.mobile.iscrollview.prototype.options.pullDownPulledText = Locale.get('activeMatches.releaseLabel')
+		$.mobile.iscrollview.prototype.options.pullDownLoadingText = Locale.get('activeMatches.loadingLabel')
+
 		self._super( data );
 
 		self.matches = ko.observableArray( [] );
+		self.requestMatches();
+	},
 
+	requestMatches: function(){
 		// Get the match list from RESTfull server
+		var self = this;
 		if ( !self.matches.lenght ) {
 			$.getJSON( config.remoteUrl + '/get_active_matches', function( all_data ) {
 		        var mappedMatches = $.map( all_data, function( match ) { 
@@ -31,5 +40,16 @@ var ActiveMatches = ViewModel.extend({
 			viewModels.scorer.show( { transition: 'slide' } );
 		}
 	},
+
+	onPageInit: function( event ) {
+		this._super( event );
+		var self = this;
+		self.$page.find('.iscroll-wrapper').on( 'iscroll_onpulldown', function( event, data ){
+			self.requestMatches();
+			self.$page.find('#listview').listview('refresh');
+			data.iscrollview.refresh();
+		});
+	}
+
 });
 

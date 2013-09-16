@@ -29,10 +29,6 @@ var ViewModel = Class.extend({
 
 	show: function( options ) {
 		$.mobile.changePage( '#'+ this.page.id, options );
-		if ( !this.appliedBindings ) {
-			ko.applyBindings( this, this.$page.find('[data-role="content"]')[0] );	
-			this.appliedBindings = true;	
-		}
 	},
 
 	_parseLocales: function( data ) {
@@ -111,9 +107,19 @@ var ViewModel = Class.extend({
 		jQuery.ajaxSetup({async:true});
 
 		$page.appendTo( $.mobile.pageContainer );
+
+		$(document).on('pageinit', '#'+page.id, function( event ) {
+			self.onPageInit( event );
+		})
 		
 		return $page;
 	},
+	onPageInit: function( event ) {
+		if ( !this.appliedBindings ) {
+			ko.applyBindings( this, this.$page.find('[data-role="content"]')[0] );	
+			this.appliedBindings = true;	
+		}
+	}
 });
 
 

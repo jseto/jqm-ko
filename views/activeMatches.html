@@ -1,7 +1,14 @@
 <!-- **** Listview ************************************* Content ************** -->
-		<div id="listView" data-role="content">
+		<div id="listView" data-role="content" data-iscroll>
+			
+			<div class="iscroll-pulldown">
+				<span class="iscroll-pull-icon"></span>
+				<span class="iscroll-pull-label" data-bind="attr: { 'data-iscroll-loading-text': loadingLabel, 'data-iscroll-pulled-text': releaseLabel }, text: pulldownLabel"></span>
+			</div>
+
 			<ul data-role="listview" data-bind="foreach: matches">
 				<li><a href="#" data-bind="click: $root.showMatch"><span data-bind="text: caption"></span></a></li>
 			</ul>
+
 		</div>
 <!-- /content -->

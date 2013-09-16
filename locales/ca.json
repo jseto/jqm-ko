@@ -8,6 +8,11 @@
 		"navbar_matches": "Partides",
 		"navbar_addMatch": "Nova Partida"
 	},
+	"activeMatches": {
+		"pulldownLabel": "Llisca cap abaix per refrescar",
+		"loadingLabel": "Carregant...",
+		"releaseLabel": "Deixa anar per carregar"
+	},
 	"scorer": {
 		"dobleFault": "Doble falta",
 		"ace": "Ace",
